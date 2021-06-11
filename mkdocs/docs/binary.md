@@ -2,10 +2,10 @@
 
 In order to install/use the HelperNode, you'll need to obtain the binary by visiting the [releases page](https://github.com/RedHatOfficial/ocp4-helpernode/releases) on GitHub.
 
-Current release is `v2alpha2`
+Current release is `v2beta1`
 
 ```shell
-wget https://github.com/RedHatOfficial/ocp4-helpernode/releases/download/v2alpha2/helpernodectl
+wget https://github.com/RedHatOfficial/ocp4-helpernode/releases/download/v2beta1/helpernodectl
 ```
 
 Copy the binary into your `$PATH`, and make it executable.

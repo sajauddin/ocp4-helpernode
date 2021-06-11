@@ -21,7 +21,7 @@ On your laptop, or a system with access to the internet, pull the
 images. Make sure you're pulling the right tag for the version
 you want.
 
-> For the alpha build, we are using `latest`, but this will change to
+> For the beta build, we are using `latest`, but this will change to
 > specific versioning in the future.
 
 ```shell
@@ -95,15 +95,15 @@ Login Succeeded!
 
 Now I can tag and push my local images to the registry.
 
-> Note that I'm using a namespace called `alpha`. You may or maynot have
+> Note that I'm using a namespace called `beta`. You may or maynot have
 > a workspace, if you do; it will probably differ in name.
 
 ```shell
 export TAG=latest
 for hni in dns dhcp http loadbalancer pxe
 do
-  podman tag quay.io/helpernode/${hni}:${TAG}  registry.example.com:5000/alpha/helpernode/${hni}:${TAG}
-  podman push registry.example.com:5000/alpha/helpernode/${hni}:${TAG}
+  podman tag quay.io/helpernode/${hni}:${TAG}  registry.example.com:5000/beta/helpernode/${hni}:${TAG}
+  podman push registry.example.com:5000/beta/helpernode/${hni}:${TAG}
 done
 ```
 
@@ -114,7 +114,7 @@ by first exporting the `HELPERNODE_IMAGE_PREFIX` environment variable
 on the HelperNode.
 
 ```shell
-export HELPERNODE_IMAGE_PREFIX=registry.example.com:5000/alpha
+export HELPERNODE_IMAGE_PREFIX=registry.example.com:5000/beta
 ```
 
 Next, you may need to login to your registry.
@@ -151,11 +151,11 @@ The output should look something like this.
 
 ```shell
 Names                     Status                  Image
-helpernode-http           Up About a minute ago   registry.example.com:5000/alpha/helpernode/http:latest
-helpernode-dhcp           Up About a minute ago   registry.example.com:5000/alpha/helpernode/dhcp:latest
-helpernode-dns            Up About a minute ago   registry.example.com:5000/alpha/helpernode/dns:latest
-helpernode-pxe            Up 2 minutes ago        registry.example.com:5000/alpha/helpernode/pxe:latest
-helpernode-loadbalancer   Up 2 minutes ago        registry.example.com:5000/alpha/helpernode/loadbalancer:latest
+helpernode-http           Up About a minute ago   registry.example.com:5000/beta/helpernode/http:latest
+helpernode-dhcp           Up About a minute ago   registry.example.com:5000/beta/helpernode/dhcp:latest
+helpernode-dns            Up About a minute ago   registry.example.com:5000/beta/helpernode/dns:latest
+helpernode-pxe            Up 2 minutes ago        registry.example.com:5000/beta/helpernode/pxe:latest
+helpernode-loadbalancer   Up 2 minutes ago        registry.example.com:5000/beta/helpernode/loadbalancer:latest
 ```
 
 # OpenShift Installation

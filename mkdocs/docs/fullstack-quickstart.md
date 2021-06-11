@@ -38,7 +38,7 @@ Next, install the `helpernodectl` CLI utility binary and put it somehwere
 in your `$PATH`, in my example I'm installing it in `/usr/local/bin`
 
 ```shell
-curl -LO https://github.com/RedHatOfficial/ocp4-helpernode/releases/download/v2alpha2/helpernodectl
+curl -LO https://github.com/RedHatOfficial/ocp4-helpernode/releases/download/v2beta1/helpernodectl
 mv helpernodectl /usr/local/bin/
 chmod +x /usr/local/bin/helpernodectl
 ```
