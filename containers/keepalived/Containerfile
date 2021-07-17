@@ -6,7 +6,7 @@ ENV OCPRHCOSVERSION="4.7.0"
 
 ENV HELPERNODEVERSION="v2beta1"
 
-RUN dnf -y install keepalived iproute vim yq wget && \
+RUN dnf -y install keepalived iproute vim yq wget jq && \
     wget https://github.com/RedHatOfficial/ocp4-helpernode/releases/download/${HELPERNODEVERSION}/helpernodectl -O /usr/local/bin/helpernodectl && \
     chmod +x /usr/local/bin/helpernodectl && \
     mkdir -p /opt/helpernode/etc && \
