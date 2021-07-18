@@ -5,15 +5,16 @@ TYPE=$1
 NAME=$2
 STATE=$3
 HELPERYAML=/opt/helpernode/etc/helper.yaml
+export PATH=/usr/local/bin:$PATH
 case $STATE in
-        "MASTER") sleep 10; /usr/local/bin/helpernodectl start --config ${HELPERYAML} --skip-preflight
+        "MASTER") sleep 5; helpernodectl pull ; helpernodectl start --config ${HELPERYAML} --skip-preflight
                   echo "$(date +%c) - Switching to MASTER, starting helpernode " | tee -a /var/log/ha-helper.log
                   ;;
-        "BACKUP") /usr/local/bin/helpernodectl stop
+        "BACKUP") helpernodectl stop
                   echo "$(date +%c) - Switching to BACKUP, stopping helpernode " | tee -a /var/log/ha-helper.log
                   exit 0
                   ;;
-        "FAULT")  /usr/local/bin/helpernodectl stop
+        "FAULT")  helpernodectl stop
                   echo "$(date +%c) - FAULTING, helpernode STOPPING " | tee -a /var/log/ha-helper.log
                   exit 0
                   ;;
