@@ -33,6 +33,7 @@ else
 	echo "Starting Keepalived service..."
 	echo "=============================="
 	# Holder for now
+	## /usr/sbin/keepalived -f ${kadConfig} --dont-fork
 	sleep infinity
 fi
 ##
