@@ -23,7 +23,7 @@ ansible localhost -c local -e @${helperNodeYaml} -m template -a "src=${kadTempla
 
 #
 ## Holder until we can figure out how to "check" the config
-if false ; then
+if ! /usr/sbin/keepalived -f ${kadConfig} -d ; then
 	echo "================================"
 	echo "FATAL: Invalid Keepalived config"
 	echo "================================"
@@ -33,7 +33,7 @@ else
 	echo "Starting Keepalived service..."
 	echo "=============================="
 	# Holder for now
-	## /usr/sbin/keepalived -f ${kadConfig} --dont-fork
+	## /usr/sbin/keepalived -f ${kadConfig} --dont-fork -l
 	sleep infinity
 fi
 ##
