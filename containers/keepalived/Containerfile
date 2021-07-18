@@ -6,14 +6,21 @@ ENV OCPRHCOSVERSION="4.7.0"
 
 ENV HELPERNODEVERSION="v2beta1"
 
-RUN dnf -y install keepalived iproute vim wget jq && \
+COPY scripts/startup.sh /usr/local/bin/
+COPY files/helperchk.sh /usr/local/bin/
+COPY files/helpernotify.sh /usr/local/bin/
+COPY files/keepalived.conf.j2 /usr/local/src/
+
+RUN dnf -y install keepalived iproute vim wget jq python3-pip && \
+    python3 -m pip install -U pip && \
+    pip3 install "ansible==2.9" && \
     wget https://github.com/RedHatOfficial/ocp4-helpernode/releases/download/${HELPERNODEVERSION}/helpernodectl -O /usr/local/bin/helpernodectl && \
     chmod +x /usr/local/bin/helpernodectl && \
+    chmod +x /usr/local/bin/yq && \
+    chmod +x /usr/local/bin/helperchk.sh && \
+    chmod +x /usr/local/bin/helpernotify.sh && \
     mkdir -p /opt/helpernode/etc && \
     wget https://github.com/mikefarah/yq/releases/download/v4.10.0/yq_linux_amd64 -O /usr/local/bin/yq && \
-    chmod +x /usr/local/bin/yq
     dnf -y clean all
-
-COPY scripts/startup.sh /usr/local/bin/
 
 ENTRYPOINT ["/usr/local/bin/startup.sh"]
