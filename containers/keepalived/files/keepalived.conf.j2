@@ -10,7 +10,7 @@ vrrp_instance VI_1 {
   virtual_router_id 51
   priority 101 # 101 on helper1, 100 on helper2
   virtual_ipaddress {
-    {{ helper.ipaddr }}
+    {{ helper.ipaddr }}/24
   }
   track_script {
     chk_helper
