@@ -30,7 +30,9 @@ max-lease-time 14400;
 {% endif %}
 {% if other is defined %}
 {% for o in other %}
+{% if o.macaddr is defined %}
 		host {{ o.name }} { hardware ethernet {{ o.macaddr }}; fixed-address {{ o.ipaddr }}; }
+{% endif %}
 {% endfor %}
 {% endif %}
 		# this will not give out addresses to hosts not listed above
