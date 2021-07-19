@@ -7,7 +7,7 @@ STATE=$3
 HELPERYAML=/opt/helpernode/etc/helper.yaml
 export PATH=/usr/local/bin:$PATH
 case $STATE in
-        "MASTER") sleep 5; helpernodectl pull ; helpernodectl start --config ${HELPERYAML} --skip-preflight
+        "MASTER") sleep 5; helpernodectl start --config ${HELPERYAML} --skip-preflight
                   echo "$(date +%c) - Switching to MASTER, starting helpernode " | tee -a /var/log/ha-helper.log
                   ;;
         "BACKUP") helpernodectl stop
