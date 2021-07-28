@@ -1,7 +1,7 @@
 FROM registry.access.redhat.com/ubi8/ubi:latest
 
-ENV OCPVERSION="4.7.7"
-ENV OCPRHCOSVERSION="4.7.0"
+ENV OCPVERSION="4.8.2"
+ENV OCPRHCOSVERSION="4.8.2"
 ENV HELPERNODEVERSION="v2beta1"
 
 COPY scripts/startup.sh /usr/local/bin/
