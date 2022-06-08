@@ -84,7 +84,7 @@
         - nfs-server
         - nfs-lock
         - nfs-idmap
-  when: ansible_distribution_major_version == "7"
+#  when: ansible_distribution_major_version == "7"
 
 - block:
   - set_fact:
@@ -127,4 +127,4 @@
         - httpd
         - rpcbind
         - nfs-server
-  when: ansible_distribution_major_version == "8"
+#when: ansible_distribution_major_version == "8"
